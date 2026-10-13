@@ -14,6 +14,7 @@ Tests: tests/test_alerting.py, then `make slo`.
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 
 
@@ -49,13 +50,19 @@ class WindowSums:
     """
 
     def __init__(self, values: list[int]) -> None:
-        """TODO(student): build the prefix-sum list (prefix[0] = 0)."""
-        raise NotImplementedError("TODO(student): WindowSums.__init__()")
+        """Build the prefix sums with an initial zero."""
+        self.prefix = [0]
+        for value in values:
+            self.prefix.append(self.prefix[-1] + value)
 
     def sum(self, end_inclusive: int, length: int) -> int:
-        """TODO(student): sum of values[end_inclusive - length + 1 .. end_inclusive],
-        clipped at index 0 when the window starts before the data."""
-        raise NotImplementedError("TODO(student): WindowSums.sum()")
+        """Sum the inclusive window, clipped to the available data."""
+        if length < 1:
+            raise ValueError("window length must be positive")
+        size = len(self.prefix) - 1
+        end = min(size, max(0, end_inclusive + 1))
+        start = min(size, max(0, end_inclusive - length + 1))
+        return self.prefix[end] - self.prefix[start]
 
 
 class BurnRateAlerter:
@@ -66,22 +73,49 @@ class BurnRateAlerter:
         self.rules = rules
 
     def burn_rate(self, total: WindowSums, bad: WindowSums, end: int, length: int) -> float:
-        """TODO(student): (bad / total over the window) / (1 - slo); 0.0 if total is 0."""
-        raise NotImplementedError("TODO(student): burn_rate()")
+        """Return window error ratio divided by budget ratio, or zero without traffic."""
+        requests = total.sum(end, length)
+        if requests == 0:
+            return 0.0
+        return (bad.sum(end, length) / requests) / (1 - self.slo)
 
     def evaluate(self, total: list[int], bad: list[int]) -> list[AlertEvent]:
-        """TODO(student): one AlertEvent per contiguous firing episode of each rule.
+        """Return one AlertEvent per contiguous firing episode of each rule.
 
         For each rule, scan the minutes; the rule fires at minute i when
         burn(long) >= rule.burn_rate AND burn(short) >= rule.burn_rate.
         An episode starts at the first firing minute and ends (exclusive) at the
         first minute it stops firing (or len(total)). Sort by start_min.
         """
-        raise NotImplementedError("TODO(student): evaluate()")
+        if len(total) != len(bad):
+            raise ValueError("total and bad must have the same number of minutes")
+        total_sums, bad_sums = WindowSums(total), WindowSums(bad)
+        events: list[AlertEvent] = []
+        for rule in self.rules:
+            start: int | None = None
+            for minute in range(len(total)):
+                long_burn = self.burn_rate(total_sums, bad_sums, minute, rule.long_min)
+                short_burn = self.burn_rate(total_sums, bad_sums, minute, rule.short_min)
+                # Include exact threshold equality despite floating-point SLO subtraction.
+                long_firing = long_burn >= rule.burn_rate or math.isclose(
+                    long_burn, rule.burn_rate, rel_tol=1e-12, abs_tol=1e-12,
+                )
+                short_firing = short_burn >= rule.burn_rate or math.isclose(
+                    short_burn, rule.burn_rate, rel_tol=1e-12, abs_tol=1e-12,
+                )
+                if long_firing and short_firing:
+                    if start is None:
+                        start = minute
+                elif start is not None:
+                    events.append(AlertEvent(rule.name, rule.severity, start, minute))
+                    start = None
+            if start is not None:
+                events.append(AlertEvent(rule.name, rule.severity, start, len(total)))
+        return sorted(events, key=lambda event: event.start_min)
 
 
 def error_budget_report(total: list[int], bad: list[int], slo: float = 0.995) -> dict[str, float | bool]:
-    """TODO(student): how much of the 30-day error budget is spent?
+    """Report how much of the 30-day error budget is spent.
 
     Return a dict with:
       requests          sum(total)
@@ -92,4 +126,20 @@ def error_budget_report(total: list[int], bad: list[int], slo: float = 0.995) ->
       budget_remaining  1 - budget_consumed             (round to 4 decimals)
       freeze_releases   True when nothing is left (budget_remaining <= 0)
     """
-    raise NotImplementedError("TODO(student): error_budget_report()")
+    if not 0 < slo < 1:
+        raise ValueError("slo must be in (0, 1)")
+    if len(total) != len(bad):
+        raise ValueError("total and bad must have the same number of minutes")
+    requests, bad_requests = sum(total), sum(bad)
+    allowed_bad = (1 - slo) * requests
+    consumed = bad_requests / allowed_bad if allowed_bad else 0.0
+    remaining = 1 - consumed
+    return {
+        "requests": requests,
+        "allowed_bad": round(allowed_bad, 1),
+        "bad": bad_requests,
+        "availability": round(1 - bad_requests / requests, 6) if requests else 1.0,
+        "budget_consumed": round(consumed, 4),
+        "budget_remaining": round(remaining, 4),
+        "freeze_releases": remaining <= 0 or math.isclose(remaining, 0.0, rel_tol=0.0, abs_tol=1e-12),
+    }

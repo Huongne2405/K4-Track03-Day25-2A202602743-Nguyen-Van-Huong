@@ -1,0 +1,136 @@
+{
+  "small_bump_public": {
+    "bad_requests_during_incident": 1794,
+    "percent_of_monthly_budget": 1.385,
+    "max_burn_by_window_min": {
+      "60": 8.2254,
+      "5": 24.949,
+      "360": 1.9105,
+      "30": 15.9041
+    }
+  },
+  "generated_runs": [
+    {
+      "seed": 7,
+      "schedule_shift_min": 0,
+      "minutes": 43200,
+      "evaluation_runtime_s": 0.1838,
+      "pass": true,
+      "incidents": [
+        {
+          "incident": "checkout_bug",
+          "expect": "page",
+          "detected": true,
+          "delay_min": 28
+        },
+        {
+          "incident": "provider_outage",
+          "expect": "page",
+          "detected": true,
+          "delay_min": 4
+        },
+        {
+          "incident": "deploy_blip",
+          "expect": "none",
+          "paged": false
+        },
+        {
+          "incident": "slow_leak",
+          "expect": "ticket",
+          "detected": true,
+          "delay_min": 1338,
+          "paged_instead": false
+        },
+        {
+          "incident": "degraded_evening",
+          "expect": "page",
+          "detected": true,
+          "delay_min": 287
+        },
+        {
+          "incident": "night_spike",
+          "expect": "none",
+          "paged": false
+        },
+        {
+          "incident": "small_bump",
+          "expect": "none",
+          "paged": false
+        }
+      ],
+      "pages": 3,
+      "tickets": 1,
+      "false_pages": 0,
+      "budget": {
+        "requests": 25901700,
+        "allowed_bad": 129508.5,
+        "bad": 55805,
+        "availability": 0.997846,
+        "budget_consumed": 0.4309,
+        "budget_remaining": 0.5691,
+        "freeze_releases": false
+      }
+    },
+    {
+      "seed": 42,
+      "schedule_shift_min": 60,
+      "minutes": 43200,
+      "evaluation_runtime_s": 0.1772,
+      "pass": true,
+      "incidents": [
+        {
+          "incident": "checkout_bug",
+          "expect": "page",
+          "detected": true,
+          "delay_min": 27
+        },
+        {
+          "incident": "provider_outage",
+          "expect": "page",
+          "detected": true,
+          "delay_min": 4
+        },
+        {
+          "incident": "deploy_blip",
+          "expect": "none",
+          "paged": false
+        },
+        {
+          "incident": "slow_leak",
+          "expect": "ticket",
+          "detected": true,
+          "delay_min": 1349,
+          "paged_instead": false
+        },
+        {
+          "incident": "degraded_evening",
+          "expect": "page",
+          "detected": true,
+          "delay_min": 290
+        },
+        {
+          "incident": "night_spike",
+          "expect": "none",
+          "paged": false
+        },
+        {
+          "incident": "small_bump",
+          "expect": "none",
+          "paged": false
+        }
+      ],
+      "pages": 3,
+      "tickets": 1,
+      "false_pages": 0,
+      "budget": {
+        "requests": 25891139,
+        "allowed_bad": 129455.7,
+        "bad": 55381,
+        "availability": 0.997861,
+        "budget_consumed": 0.4278,
+        "budget_remaining": 0.5722,
+        "freeze_releases": false
+      }
+    }
+  ]
+}
