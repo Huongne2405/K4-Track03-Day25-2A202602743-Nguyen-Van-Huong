@@ -1,0 +1,106 @@
+{
+  "seed": 25,
+  "source_csv": "reports/gameday/naive_G2_overload_storm_timeseries.csv",
+  "timeline": [
+    {
+      "t": 110,
+      "attempts_alpha_per_s": 5,
+      "calls_ok_at_t": 9,
+      "calls_done_at_t": 9,
+      "calls_ok_10s": 73,
+      "calls_done_10s": 73,
+      "success_ratio_10s": 1.0
+    },
+    {
+      "t": 120,
+      "attempts_alpha_per_s": 5,
+      "calls_ok_at_t": 7,
+      "calls_done_at_t": 7,
+      "calls_ok_10s": 90,
+      "calls_done_10s": 90,
+      "success_ratio_10s": 1.0
+    },
+    {
+      "t": 150,
+      "attempts_alpha_per_s": 163,
+      "calls_ok_at_t": 0,
+      "calls_done_at_t": 3,
+      "calls_ok_10s": 0,
+      "calls_done_10s": 50,
+      "success_ratio_10s": 0.0
+    },
+    {
+      "t": 240,
+      "attempts_alpha_per_s": 105,
+      "calls_ok_at_t": 0,
+      "calls_done_at_t": 2,
+      "calls_ok_10s": 0,
+      "calls_done_10s": 56,
+      "success_ratio_10s": 0.0
+    },
+    {
+      "t": 300,
+      "attempts_alpha_per_s": 115,
+      "calls_ok_at_t": 0,
+      "calls_done_at_t": 5,
+      "calls_ok_10s": 0,
+      "calls_done_10s": 43,
+      "success_ratio_10s": 0.0
+    },
+    {
+      "t": 330,
+      "attempts_alpha_per_s": 6,
+      "calls_ok_at_t": 0,
+      "calls_done_at_t": 1,
+      "calls_ok_10s": 0,
+      "calls_done_10s": 27,
+      "success_ratio_10s": 0.0
+    },
+    {
+      "t": 440,
+      "attempts_alpha_per_s": 11,
+      "calls_ok_at_t": 0,
+      "calls_done_at_t": 3,
+      "calls_ok_10s": 0,
+      "calls_done_10s": 47,
+      "success_ratio_10s": 0.0
+    },
+    {
+      "t": 455,
+      "attempts_alpha_per_s": 13,
+      "calls_ok_at_t": 4,
+      "calls_done_at_t": 5,
+      "calls_ok_10s": 12,
+      "calls_done_10s": 40,
+      "success_ratio_10s": 0.3
+    },
+    {
+      "t": 485,
+      "attempts_alpha_per_s": 10,
+      "calls_ok_at_t": 14,
+      "calls_done_at_t": 14,
+      "calls_ok_10s": 130,
+      "calls_done_10s": 130,
+      "success_ratio_10s": 1.0
+    }
+  ],
+  "failed_turns": 1285,
+  "monthly_budget": {
+    "assumed_turns_per_s": 4.0,
+    "slo": 0.995,
+    "expected_monthly_turns": 10368000.0,
+    "allowed_bad_turns": 51840.0,
+    "budget_consumed_pct": 2.4788,
+    "budget_remaining_pct": 97.5212
+  },
+  "peak_attempts": {
+    "t": 143,
+    "calls_ok": 0,
+    "calls_done": 0,
+    "attempts_alpha": 254,
+    "attempts_alpha-eu": 0,
+    "attempts_beta": 0,
+    "attempts_gamma-mini": 0
+  },
+  "trigger_to_recovery_window_s": 335.0
+}

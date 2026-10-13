@@ -1,0 +1,4232 @@
+{
+  "breaker_disabled_budget_on": {
+    "seed": 25,
+    "client_settings": {
+      "attempt_timeout_s": 6.0,
+      "max_attempts_per_provider": 5,
+      "min_time_left_s": 1.0,
+      "backoff_base_s": 0.25,
+      "backoff_cap_s": 4.0,
+      "retry_budget_ratio": 0.05,
+      "retry_budget_min_per_s": 0.1,
+      "retry_budget_max_tokens": 20,
+      "quota_cooldown_s": 300,
+      "breaker": {
+        "window_size": 20,
+        "min_calls": 1000000000,
+        "failure_rate_threshold": 0.5,
+        "slow_call_s": 5.0,
+        "slow_rate_threshold": 0.6,
+        "open_duration_s": 10.0,
+        "half_open_max_probes": 2,
+        "half_open_successes": 2
+      }
+    },
+    "unfiltered_tools": false,
+    "runs": {
+      "G2_overload_storm": {
+        "scenario": "G2_overload_storm",
+        "client": "resilient",
+        "turns": 2362,
+        "good_turns": 2362,
+        "availability": 1.0,
+        "latency_p50_s": 3.205,
+        "latency_p95_s": 15.196,
+        "latency_p99_s": 17.517,
+        "calls": 4724,
+        "attempts": 6452,
+        "amplification": 1.366,
+        "retry_ratio": 0.027,
+        "attempts_by_provider": {
+          "alpha": 4850,
+          "alpha-eu": 1274,
+          "beta": 328
+        },
+        "errors_by_code": {
+          "api_error": 12,
+          "client_timeout": 754,
+          "overloaded_error": 918,
+          "rate_limit_exceeded": 44
+        },
+        "give_up_reasons": {},
+        "cost": 5621.2,
+        "cost_per_good_turn": 2.38,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "amplification_max": true,
+          "recovery_s_max": true,
+          "primary_share_after_restore_min": true
+        },
+        "pass": true,
+        "breaker_transitions": {
+          "alpha": [],
+          "alpha-eu": [],
+          "beta": [],
+          "gamma-mini": []
+        }
+      },
+      "G3_brownout": {
+        "scenario": "G3_brownout",
+        "client": "resilient",
+        "turns": 1929,
+        "good_turns": 1929,
+        "availability": 1.0,
+        "latency_p50_s": 2.876,
+        "latency_p95_s": 4.457,
+        "latency_p99_s": 5.451,
+        "calls": 3858,
+        "attempts": 4339,
+        "amplification": 1.125,
+        "retry_ratio": 0.03,
+        "attempts_by_provider": {
+          "alpha": 3975,
+          "alpha-eu": 364
+        },
+        "errors_by_code": {
+          "api_error": 481
+        },
+        "give_up_reasons": {},
+        "cost": 4339.0,
+        "cost_per_good_turn": 2.249,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "retry_ratio_max": true,
+          "amplification_max": true
+        },
+        "pass": true,
+        "breaker_transitions": {
+          "alpha": [],
+          "alpha-eu": [],
+          "beta": [],
+          "gamma-mini": []
+        }
+      }
+    }
+  },
+  "breaker_disabled_budget_off": {
+    "seed": 25,
+    "client_settings": {
+      "attempt_timeout_s": 6.0,
+      "max_attempts_per_provider": 5,
+      "min_time_left_s": 1.0,
+      "backoff_base_s": 0.25,
+      "backoff_cap_s": 4.0,
+      "retry_budget_ratio": 100,
+      "retry_budget_min_per_s": 1000000.0,
+      "retry_budget_max_tokens": 1000000000.0,
+      "quota_cooldown_s": 300,
+      "breaker": {
+        "window_size": 20,
+        "min_calls": 1000000000,
+        "failure_rate_threshold": 0.5,
+        "slow_call_s": 5.0,
+        "slow_rate_threshold": 0.6,
+        "open_duration_s": 10.0,
+        "half_open_max_probes": 2,
+        "half_open_successes": 2
+      }
+    },
+    "unfiltered_tools": false,
+    "runs": {
+      "G2_overload_storm": {
+        "scenario": "G2_overload_storm",
+        "client": "resilient",
+        "turns": 2362,
+        "good_turns": 2298,
+        "availability": 0.9729,
+        "latency_p50_s": 3.349,
+        "latency_p95_s": 18.527,
+        "latency_p99_s": 27.25,
+        "calls": 4703,
+        "attempts": 7863,
+        "amplification": 1.672,
+        "retry_ratio": 0.442,
+        "attempts_by_provider": {
+          "alpha": 6131,
+          "alpha-eu": 1060,
+          "beta": 670,
+          "gamma-mini": 2
+        },
+        "errors_by_code": {
+          "api_error": 10,
+          "client_timeout": 1100,
+          "overloaded_error": 1592,
+          "rate_limit_exceeded": 522
+        },
+        "give_up_reasons": {
+          "deadline": 64
+        },
+        "cost": 6013.8,
+        "cost_per_good_turn": 2.617,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 42.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "amplification_max": false,
+          "recovery_s_max": false,
+          "primary_share_after_restore_min": true
+        },
+        "pass": false,
+        "breaker_transitions": {
+          "alpha": [],
+          "alpha-eu": [],
+          "beta": [],
+          "gamma-mini": []
+        }
+      },
+      "G3_brownout": {
+        "scenario": "G3_brownout",
+        "client": "resilient",
+        "turns": 1929,
+        "good_turns": 1929,
+        "availability": 1.0,
+        "latency_p50_s": 2.924,
+        "latency_p95_s": 4.661,
+        "latency_p99_s": 5.829,
+        "calls": 3858,
+        "attempts": 4483,
+        "amplification": 1.162,
+        "retry_ratio": 0.158,
+        "attempts_by_provider": {
+          "alpha": 4450,
+          "alpha-eu": 26,
+          "beta": 7
+        },
+        "errors_by_code": {
+          "api_error": 618,
+          "rate_limit_exceeded": 7
+        },
+        "give_up_reasons": {},
+        "cost": 4478.8,
+        "cost_per_good_turn": 2.322,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "retry_ratio_max": false,
+          "amplification_max": true
+        },
+        "pass": false,
+        "breaker_transitions": {
+          "alpha": [],
+          "alpha-eu": [],
+          "beta": [],
+          "gamma-mini": []
+        }
+      }
+    }
+  },
+  "breaker_enabled_budget_on": {
+    "seed": 25,
+    "client_settings": {
+      "attempt_timeout_s": 6.0,
+      "max_attempts_per_provider": 5,
+      "min_time_left_s": 1.0,
+      "backoff_base_s": 0.25,
+      "backoff_cap_s": 4.0,
+      "retry_budget_ratio": 0.05,
+      "retry_budget_min_per_s": 0.1,
+      "retry_budget_max_tokens": 20,
+      "quota_cooldown_s": 300,
+      "breaker": {
+        "window_size": 20,
+        "min_calls": 10,
+        "failure_rate_threshold": 0.5,
+        "slow_call_s": 5.0,
+        "slow_rate_threshold": 0.6,
+        "open_duration_s": 10.0,
+        "half_open_max_probes": 2,
+        "half_open_successes": 2
+      }
+    },
+    "unfiltered_tools": false,
+    "runs": {
+      "G2_overload_storm": {
+        "scenario": "G2_overload_storm",
+        "client": "resilient",
+        "turns": 2362,
+        "good_turns": 2362,
+        "availability": 1.0,
+        "latency_p50_s": 3.003,
+        "latency_p95_s": 8.896,
+        "latency_p99_s": 15.176,
+        "calls": 4724,
+        "attempts": 4953,
+        "amplification": 1.048,
+        "retry_ratio": 0.009,
+        "attempts_by_provider": {
+          "alpha": 3434,
+          "alpha-eu": 1092,
+          "beta": 423,
+          "gamma-mini": 4
+        },
+        "errors_by_code": {
+          "api_error": 14,
+          "client_timeout": 157,
+          "rate_limit_exceeded": 58
+        },
+        "give_up_reasons": {},
+        "cost": 5059.8,
+        "cost_per_good_turn": 2.142,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "amplification_max": true,
+          "recovery_s_max": true,
+          "primary_share_after_restore_min": true
+        },
+        "pass": true,
+        "breaker_transitions": {
+          "alpha": [
+            {
+              "t": 130.03283963268845,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 140.07519736546783,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 145.42877063940915,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 155.5280875597496,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 160.99903133252445,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 171.01574826776542,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 176.3739072274033,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 186.37977096978028,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 191.36534132985085,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 202.96141343889687,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 213.01296153976728,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 219.01296153976728,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 229.29582253702367,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 234.71418055400144,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 244.79290760391063,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 250.9294968772576,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 260.9590145815215,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 266.9590145815215,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 277.0275372938739,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 280.9911618626049,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 289.38482026091117,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 299.6045534889128,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 304.72445967793414,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "alpha-eu": [],
+          "beta": [],
+          "gamma-mini": []
+        }
+      },
+      "G3_brownout": {
+        "scenario": "G3_brownout",
+        "client": "resilient",
+        "turns": 1929,
+        "good_turns": 1929,
+        "availability": 1.0,
+        "latency_p50_s": 2.967,
+        "latency_p95_s": 4.613,
+        "latency_p99_s": 5.493,
+        "calls": 3858,
+        "attempts": 4043,
+        "amplification": 1.048,
+        "retry_ratio": 0.026,
+        "attempts_by_provider": {
+          "alpha": 2933,
+          "alpha-eu": 893,
+          "beta": 217
+        },
+        "errors_by_code": {
+          "api_error": 157,
+          "rate_limit_exceeded": 28
+        },
+        "give_up_reasons": {},
+        "cost": 4101.8,
+        "cost_per_good_turn": 2.126,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "retry_ratio_max": true,
+          "amplification_max": true
+        },
+        "pass": true,
+        "breaker_transitions": {
+          "alpha": [
+            {
+              "t": 125.8891631777501,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 135.926307456061,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 136.9750920765578,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 141.5743189068906,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 151.8937328465508,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 153.62224621581598,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 155.38243054680814,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 165.58944915738783,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 167.67398789266895,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 184.49354580541288,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 194.68080644776424,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 195.05351812927952,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 205.1908828322842,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 205.93701563749522,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 215.94473447791307,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 217.09474268732455,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 219.62828037086115,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 229.70224558298773,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 232.1771449489675,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 233.74907201476847,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 243.7493675645236,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 244.23171101307906,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 254.24576143558025,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 254.5624880824888,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 264.66502816279626,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 265.0458197837349,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 275.21420766916293,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 277.4559505645474,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "alpha-eu": [],
+          "beta": [],
+          "gamma-mini": []
+        }
+      }
+    }
+  },
+  "breaker_enabled_budget_off": {
+    "seed": 25,
+    "client_settings": {
+      "attempt_timeout_s": 6.0,
+      "max_attempts_per_provider": 5,
+      "min_time_left_s": 1.0,
+      "backoff_base_s": 0.25,
+      "backoff_cap_s": 4.0,
+      "retry_budget_ratio": 100,
+      "retry_budget_min_per_s": 1000000.0,
+      "retry_budget_max_tokens": 1000000000.0,
+      "quota_cooldown_s": 300,
+      "breaker": {
+        "window_size": 20,
+        "min_calls": 10,
+        "failure_rate_threshold": 0.5,
+        "slow_call_s": 5.0,
+        "slow_rate_threshold": 0.6,
+        "open_duration_s": 10.0,
+        "half_open_max_probes": 2,
+        "half_open_successes": 2
+      }
+    },
+    "unfiltered_tools": false,
+    "runs": {
+      "G2_overload_storm": {
+        "scenario": "G2_overload_storm",
+        "client": "resilient",
+        "turns": 2362,
+        "good_turns": 2362,
+        "availability": 1.0,
+        "latency_p50_s": 3.003,
+        "latency_p95_s": 8.896,
+        "latency_p99_s": 15.176,
+        "calls": 4724,
+        "attempts": 4953,
+        "amplification": 1.048,
+        "retry_ratio": 0.009,
+        "attempts_by_provider": {
+          "alpha": 3434,
+          "alpha-eu": 1092,
+          "beta": 423,
+          "gamma-mini": 4
+        },
+        "errors_by_code": {
+          "api_error": 14,
+          "client_timeout": 157,
+          "rate_limit_exceeded": 58
+        },
+        "give_up_reasons": {},
+        "cost": 5059.8,
+        "cost_per_good_turn": 2.142,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "amplification_max": true,
+          "recovery_s_max": true,
+          "primary_share_after_restore_min": true
+        },
+        "pass": true,
+        "breaker_transitions": {
+          "alpha": [
+            {
+              "t": 130.03283963268845,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 140.07519736546783,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 145.42877063940915,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 155.5280875597496,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 160.99903133252445,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 171.01574826776542,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 176.3739072274033,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 186.37977096978028,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 191.36534132985085,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 202.96141343889687,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 213.01296153976728,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 219.01296153976728,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 229.29582253702367,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 234.71418055400144,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 244.79290760391063,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 250.9294968772576,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 260.9590145815215,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 266.9590145815215,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 277.0275372938739,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 280.9911618626049,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 289.38482026091117,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 299.6045534889128,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 304.72445967793414,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "alpha-eu": [],
+          "beta": [],
+          "gamma-mini": []
+        }
+      },
+      "G3_brownout": {
+        "scenario": "G3_brownout",
+        "client": "resilient",
+        "turns": 1929,
+        "good_turns": 1929,
+        "availability": 1.0,
+        "latency_p50_s": 3.022,
+        "latency_p95_s": 4.757,
+        "latency_p99_s": 5.576,
+        "calls": 3858,
+        "attempts": 3997,
+        "amplification": 1.036,
+        "retry_ratio": 0.02,
+        "attempts_by_provider": {
+          "alpha": 2646,
+          "alpha-eu": 1091,
+          "beta": 260
+        },
+        "errors_by_code": {
+          "api_error": 102,
+          "rate_limit_exceeded": 37
+        },
+        "give_up_reasons": {},
+        "cost": 4064.0,
+        "cost_per_good_turn": 2.107,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "retry_ratio_max": true,
+          "amplification_max": true
+        },
+        "pass": true,
+        "breaker_transitions": {
+          "alpha": [
+            {
+              "t": 125.8891631777501,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 135.926307456061,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 136.9750920765578,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 141.5743189068906,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 151.8937328465508,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 153.62224621581598,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 155.38243054680814,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 165.58944915738783,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 167.67398789266895,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 183.2870892324443,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 193.39535709617954,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 193.67964497876793,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 203.68906959246402,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 204.07938870316974,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 214.28113480672164,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 216.21985879947337,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 226.28121203124218,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 227.3451052236324,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 229.4142448485248,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 239.710229040169,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 240.05190756751102,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 250.31593505030588,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 250.66051896847023,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 261.04969998277994,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 263.10667645523677,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            },
+            {
+              "t": 265.0873569312943,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 275.16497407522564,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 275.6754806931119,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 285.7109866640853,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 286.34778731068155,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 296.5193200428904,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 296.931598109748,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 306.97219637591866,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 308.3530001762985,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "alpha-eu": [],
+          "beta": [],
+          "gamma-mini": []
+        }
+      }
+    }
+  },
+  "timeout_6": {
+    "seed": 25,
+    "client_settings": {
+      "attempt_timeout_s": 6.0,
+      "max_attempts_per_provider": 2,
+      "min_time_left_s": 1.0,
+      "backoff_base_s": 0.25,
+      "backoff_cap_s": 4.0,
+      "retry_budget_ratio": 0.05,
+      "retry_budget_min_per_s": 0.1,
+      "retry_budget_max_tokens": 20,
+      "quota_cooldown_s": 300,
+      "breaker": {
+        "window_size": 20,
+        "min_calls": 10,
+        "failure_rate_threshold": 0.5,
+        "slow_call_s": 5.0,
+        "slow_rate_threshold": 0.6,
+        "open_duration_s": 10.0,
+        "half_open_max_probes": 2,
+        "half_open_successes": 2
+      }
+    },
+    "unfiltered_tools": false,
+    "runs": {
+      "G6_provider_outage": {
+        "scenario": "G6_provider_outage",
+        "client": "resilient",
+        "turns": 2385,
+        "good_turns": 2382,
+        "availability": 0.9987,
+        "latency_p50_s": 3.248,
+        "latency_p95_s": 5.863,
+        "latency_p99_s": 10.585,
+        "calls": 4767,
+        "attempts": 5016,
+        "amplification": 1.052,
+        "retry_ratio": 0.018,
+        "attempts_by_provider": {
+          "alpha": 2396,
+          "alpha-eu": 78,
+          "beta": 2169,
+          "gamma-mini": 373
+        },
+        "errors_by_code": {
+          "api_error": 11,
+          "service_unavailable": 48,
+          "client_timeout": 79,
+          "rate_limit_exceeded": 114
+        },
+        "give_up_reasons": {
+          "no_provider_available": 3
+        },
+        "cost": 5299.6,
+        "cost_per_good_turn": 2.225,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "incompatible_routes_max": true,
+          "primary_share_after_restore_min": true
+        },
+        "pass": true,
+        "breaker_transitions": {
+          "alpha": [
+            {
+              "t": 121.0986076683127,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 131.16820329131016,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 131.21820329131018,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 141.65963134657045,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 141.70963134657046,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 151.72708883513715,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 151.77708883513716,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 161.90648072725554,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 161.95648072725555,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 171.994735664162,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 172.044735664162,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 182.27254474325292,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 182.32254474325293,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 192.6856231367508,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 192.7356231367508,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 202.74719962436347,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 202.7971996243635,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 212.9771970635444,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 213.0271970635444,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 223.03375591161358,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 223.0837559116136,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 233.12402465400868,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 233.1740246540087,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 243.17650188490921,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 243.22650188490923,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 253.4650676785603,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 253.5150676785603,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 263.55526344579533,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 263.60526344579534,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 273.8611434052381,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 273.91114340523814,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 283.97761456132275,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 284.02761456132276,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 294.08140886527235,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 294.13140886527236,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 304.2327281556629,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 304.28272815566294,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 314.4119832126617,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 314.4619832126617,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 324.528550198615,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 324.578550198615,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 334.70666438559624,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 334.75666438559625,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 344.98847134668625,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 345.03847134668626,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 355.07169235742003,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 355.12169235742005,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 365.34318374841,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 365.39318374841,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 375.5179769566225,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 375.5679769566225,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 385.680765024491,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 385.730765024491,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 395.7367530510854,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 395.7867530510854,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 405.8036162651757,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 405.85361626517573,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 416.01859605753674,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 416.06859605753675,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 426.0870581057624,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 427.60956625381675,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "alpha-eu": [
+            {
+              "t": 127.41262878195334,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 137.54902550983638,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 143.54902550983638,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 153.6007067705697,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 159.6007067705697,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 169.6247625543949,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 175.6247625543949,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 185.74333678402814,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 191.74333678402814,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 201.78119166640613,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 207.78119166640613,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 217.9205458701094,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 223.9205458701094,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 234.07977918801626,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 240.07977918801626,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 250.16200175864125,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 256.1620017586413,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 266.2398027642384,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 272.2398027642384,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 282.37144544214027,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 288.37144544214027,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 298.372567599642,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 304.372567599642,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 314.4619832126617,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 320.4619832126617,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 330.7940667293412,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 336.7940667293412,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 347.03886858006547,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 353.03886858006547,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 363.19037951593,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 369.19037951593,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 379.21905142803513,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 385.21905142803513,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 395.3553923871833,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 401.3553923871833,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 411.66710657050857,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 417.66710657050857,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            }
+          ],
+          "beta": [],
+          "gamma-mini": []
+        }
+      },
+      "G4_slow_region": {
+        "scenario": "G4_slow_region",
+        "client": "resilient",
+        "turns": 2174,
+        "good_turns": 2174,
+        "availability": 1.0,
+        "latency_p50_s": 3.185,
+        "latency_p95_s": 5.483,
+        "latency_p99_s": 10.331,
+        "calls": 4348,
+        "attempts": 4481,
+        "amplification": 1.031,
+        "retry_ratio": 0.004,
+        "attempts_by_provider": {
+          "alpha": 2054,
+          "alpha-eu": 2011,
+          "beta": 409,
+          "gamma-mini": 7
+        },
+        "errors_by_code": {
+          "api_error": 10,
+          "client_timeout": 71,
+          "rate_limit_exceeded": 52
+        },
+        "give_up_reasons": {},
+        "cost": 4586.6,
+        "cost_per_good_turn": 2.11,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "latency_p95_s_max": true,
+          "primary_share_after_restore_min": true
+        },
+        "pass": true,
+        "breaker_transitions": {
+          "alpha": [
+            {
+              "t": 127.66191645927937,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 137.7243460955271,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 143.7243460955271,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 153.96243651056898,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 159.96243651056898,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 169.9899624642982,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 175.68966477629817,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 185.7479964389032,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 191.7479964389032,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 201.86081734012353,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 207.86081734012353,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 217.8758289782265,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 223.8758289782265,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 233.94002582891247,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 239.94002582891247,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 249.94175741431488,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 255.94175741431488,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 266.27968835375486,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 272.27968835375486,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 282.33216861997875,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 288.33216861997875,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 298.4672102325542,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 304.4184986613963,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 314.57259933798514,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 320.2396472485504,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 330.2601394351992,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 336.09587893727326,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 346.4503300711396,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 352.3063445916729,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 362.39428740643706,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 368.39428740643706,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 378.48025691551055,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 384.369082353609,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 394.9476891824828,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 400.9476891824828,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 410.9597837295669,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 416.9597837295669,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 426.9923891638213,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 429.0529527502272,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "alpha-eu": [],
+          "beta": [],
+          "gamma-mini": []
+        }
+      }
+    }
+  },
+  "timeout_30": {
+    "seed": 25,
+    "client_settings": {
+      "attempt_timeout_s": 30,
+      "max_attempts_per_provider": 2,
+      "min_time_left_s": 1.0,
+      "backoff_base_s": 0.25,
+      "backoff_cap_s": 4.0,
+      "retry_budget_ratio": 0.05,
+      "retry_budget_min_per_s": 0.1,
+      "retry_budget_max_tokens": 20,
+      "quota_cooldown_s": 300,
+      "breaker": {
+        "window_size": 20,
+        "min_calls": 10,
+        "failure_rate_threshold": 0.5,
+        "slow_call_s": 5.0,
+        "slow_rate_threshold": 0.6,
+        "open_duration_s": 10.0,
+        "half_open_max_probes": 2,
+        "half_open_successes": 2
+      }
+    },
+    "unfiltered_tools": false,
+    "runs": {
+      "G6_provider_outage": {
+        "scenario": "G6_provider_outage",
+        "client": "resilient",
+        "turns": 2385,
+        "good_turns": 2262,
+        "availability": 0.9484,
+        "latency_p50_s": 3.172,
+        "latency_p95_s": 5.357,
+        "latency_p99_s": 6.4,
+        "calls": 4661,
+        "attempts": 4829,
+        "amplification": 1.036,
+        "retry_ratio": 0.016,
+        "attempts_by_provider": {
+          "alpha": 2388,
+          "alpha-eu": 122,
+          "beta": 1985,
+          "gamma-mini": 334
+        },
+        "errors_by_code": {
+          "api_error": 10,
+          "service_unavailable": 48,
+          "client_timeout": 122,
+          "rate_limit_exceeded": 111
+        },
+        "give_up_reasons": {
+          "deadline": 107,
+          "no_provider_available": 16
+        },
+        "cost": 5030.4,
+        "cost_per_good_turn": 2.224,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": false,
+          "incompatible_routes_max": true,
+          "primary_share_after_restore_min": true
+        },
+        "pass": false,
+        "breaker_transitions": {
+          "alpha": [
+            {
+              "t": 121.0986076683127,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 131.16820329131016,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 131.21820329131018,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 141.83708685715922,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 141.88708685715923,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 152.00306662144868,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 152.0530666214487,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 162.24389346405954,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 162.29389346405955,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 172.346518157954,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 172.396518157954,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 182.4446131841358,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 182.4946131841358,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 192.6856231367508,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 192.7356231367508,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 202.74719962436347,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 202.7971996243635,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 213.06280630602433,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 213.11280630602434,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 223.18244583097345,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 223.23244583097346,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 233.54999266098602,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 233.59999266098603,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 243.7002288065671,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 243.75022880656712,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 253.96020631846716,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 254.01020631846717,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 264.01898222804533,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 264.06898222804534,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 274.1377240151887,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 274.18772401518873,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 284.7170164848803,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 284.7670164848803,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 294.82392455461417,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 294.8739245546142,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 304.88005796357487,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 304.9300579635749,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 314.972422308805,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 315.022422308805,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 325.0499008649133,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 325.0999008649133,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 335.16331313716023,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 335.21331313716024,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 345.465527954063,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 345.51552795406303,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 355.5524556009435,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 355.60245560094353,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 365.8213389513395,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 365.8713389513395,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 375.8861539255151,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 375.9361539255151,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 385.96422379456857,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 386.0142237945686,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 396.28671964735094,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 396.33671964735095,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 406.3666856452429,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 406.4166856452429,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 416.6450146639973,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 416.6950146639973,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 426.7998222994355,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 428.4153964058914,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "alpha-eu": [
+            {
+              "t": 151.40693597089887,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 161.90648072725554,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 191.90648072725554,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 201.99118866830892,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 229.01176440036772,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 239.01221276585323,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 269.01221276585323,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 279.06503137166163,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 306.8543958193794,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 316.85719354576855,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 344.684203352184,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 354.7251182138165,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 381.8815472960468,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 391.8987495669417,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 421.8987495669417,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            }
+          ],
+          "beta": [],
+          "gamma-mini": []
+        }
+      },
+      "G4_slow_region": {
+        "scenario": "G4_slow_region",
+        "client": "resilient",
+        "turns": 2174,
+        "good_turns": 2174,
+        "availability": 1.0,
+        "latency_p50_s": 3.156,
+        "latency_p95_s": 5.608,
+        "latency_p99_s": 8.952,
+        "calls": 4348,
+        "attempts": 4411,
+        "amplification": 1.014,
+        "retry_ratio": 0.002,
+        "attempts_by_provider": {
+          "alpha": 2035,
+          "alpha-eu": 1956,
+          "beta": 420
+        },
+        "errors_by_code": {
+          "api_error": 10,
+          "rate_limit_exceeded": 53
+        },
+        "give_up_reasons": {},
+        "cost": 4526.0,
+        "cost_per_good_turn": 2.082,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "latency_p95_s_max": true,
+          "primary_share_after_restore_min": true
+        },
+        "pass": true,
+        "breaker_transitions": {
+          "alpha": [
+            {
+              "t": 127.98095300161845,
+              "frm": "closed",
+              "to": "open",
+              "reason": "slow_call_rate"
+            },
+            {
+              "t": 138.13287087545032,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 144.3061636643703,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 154.85429298583568,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 160.74098406758355,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 170.84413897396868,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 177.6144688149433,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 187.67630704086952,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 193.6824629067778,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 204.00076697416327,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 209.4884852740055,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 219.82163959240978,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 225.96519991138513,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 236.0528509565276,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 242.295991370047,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 252.34257165935017,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 258.1722191403117,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 268.2365228837749,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 274.34968238016876,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 284.5073450819156,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 290.785431475077,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 300.9700983625502,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 306.9743439611518,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 317.00840618457806,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 323.3934543209107,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 333.43012109482726,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 339.1993633391138,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 349.25539014876637,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 355.230766221536,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 365.34353184032295,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 371.2596849955491,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 381.28087910322137,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 387.3954201604369,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 397.6511837185453,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 403.7789040471018,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 413.80009946872195,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 419.5829152709337,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_slow"
+            },
+            {
+              "t": 429.68065464859365,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 430.9937761724502,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "alpha-eu": [],
+          "beta": [],
+          "gamma-mini": []
+        }
+      }
+    }
+  },
+  "tool_filter_on": {
+    "seed": 25,
+    "client_settings": {
+      "attempt_timeout_s": 6.0,
+      "max_attempts_per_provider": 2,
+      "min_time_left_s": 1.0,
+      "backoff_base_s": 0.25,
+      "backoff_cap_s": 4.0,
+      "retry_budget_ratio": 0.05,
+      "retry_budget_min_per_s": 0.1,
+      "retry_budget_max_tokens": 20,
+      "quota_cooldown_s": 300,
+      "breaker": {
+        "window_size": 20,
+        "min_calls": 10,
+        "failure_rate_threshold": 0.5,
+        "slow_call_s": 5.0,
+        "slow_rate_threshold": 0.6,
+        "open_duration_s": 10.0,
+        "half_open_max_probes": 2,
+        "half_open_successes": 2
+      }
+    },
+    "unfiltered_tools": false,
+    "runs": {
+      "G6_provider_outage": {
+        "scenario": "G6_provider_outage",
+        "client": "resilient",
+        "turns": 2385,
+        "good_turns": 2382,
+        "availability": 0.9987,
+        "latency_p50_s": 3.248,
+        "latency_p95_s": 5.863,
+        "latency_p99_s": 10.585,
+        "calls": 4767,
+        "attempts": 5016,
+        "amplification": 1.052,
+        "retry_ratio": 0.018,
+        "attempts_by_provider": {
+          "alpha": 2396,
+          "alpha-eu": 78,
+          "beta": 2169,
+          "gamma-mini": 373
+        },
+        "errors_by_code": {
+          "api_error": 11,
+          "service_unavailable": 48,
+          "client_timeout": 79,
+          "rate_limit_exceeded": 114
+        },
+        "give_up_reasons": {
+          "no_provider_available": 3
+        },
+        "cost": 5299.6,
+        "cost_per_good_turn": 2.225,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 0,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": true,
+          "incompatible_routes_max": true,
+          "primary_share_after_restore_min": true
+        },
+        "pass": true,
+        "breaker_transitions": {
+          "alpha": [
+            {
+              "t": 121.0986076683127,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 131.16820329131016,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 131.21820329131018,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 141.65963134657045,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 141.70963134657046,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 151.72708883513715,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 151.77708883513716,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 161.90648072725554,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 161.95648072725555,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 171.994735664162,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 172.044735664162,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 182.27254474325292,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 182.32254474325293,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 192.6856231367508,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 192.7356231367508,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 202.74719962436347,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 202.7971996243635,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 212.9771970635444,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 213.0271970635444,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 223.03375591161358,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 223.0837559116136,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 233.12402465400868,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 233.1740246540087,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 243.17650188490921,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 243.22650188490923,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 253.4650676785603,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 253.5150676785603,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 263.55526344579533,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 263.60526344579534,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 273.8611434052381,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 273.91114340523814,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 283.97761456132275,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 284.02761456132276,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 294.08140886527235,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 294.13140886527236,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 304.2327281556629,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 304.28272815566294,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 314.4119832126617,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 314.4619832126617,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 324.528550198615,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 324.578550198615,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 334.70666438559624,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 334.75666438559625,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 344.98847134668625,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 345.03847134668626,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 355.07169235742003,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 355.12169235742005,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 365.34318374841,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 365.39318374841,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 375.5179769566225,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 375.5679769566225,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 385.680765024491,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 385.730765024491,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 395.7367530510854,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 395.7867530510854,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 405.8036162651757,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 405.85361626517573,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 416.01859605753674,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 416.06859605753675,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 426.0870581057624,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 427.60956625381675,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "alpha-eu": [
+            {
+              "t": 127.41262878195334,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 137.54902550983638,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 143.54902550983638,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 153.6007067705697,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 159.6007067705697,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 169.6247625543949,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 175.6247625543949,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 185.74333678402814,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 191.74333678402814,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 201.78119166640613,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 207.78119166640613,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 217.9205458701094,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 223.9205458701094,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 234.07977918801626,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 240.07977918801626,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 250.16200175864125,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 256.1620017586413,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 266.2398027642384,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 272.2398027642384,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 282.37144544214027,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 288.37144544214027,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 298.372567599642,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 304.372567599642,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 314.4619832126617,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 320.4619832126617,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 330.7940667293412,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 336.7940667293412,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 347.03886858006547,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 353.03886858006547,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 363.19037951593,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 369.19037951593,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 379.21905142803513,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 385.21905142803513,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 395.3553923871833,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 401.3553923871833,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 411.66710657050857,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 417.66710657050857,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            }
+          ],
+          "beta": [],
+          "gamma-mini": []
+        }
+      }
+    }
+  },
+  "tool_filter_off": {
+    "seed": 25,
+    "client_settings": {
+      "attempt_timeout_s": 6.0,
+      "max_attempts_per_provider": 2,
+      "min_time_left_s": 1.0,
+      "backoff_base_s": 0.25,
+      "backoff_cap_s": 4.0,
+      "retry_budget_ratio": 0.05,
+      "retry_budget_min_per_s": 0.1,
+      "retry_budget_max_tokens": 20,
+      "quota_cooldown_s": 300,
+      "breaker": {
+        "window_size": 20,
+        "min_calls": 10,
+        "failure_rate_threshold": 0.5,
+        "slow_call_s": 5.0,
+        "slow_rate_threshold": 0.6,
+        "open_duration_s": 10.0,
+        "half_open_max_probes": 2,
+        "half_open_successes": 2
+      }
+    },
+    "unfiltered_tools": true,
+    "runs": {
+      "G6_provider_outage": {
+        "scenario": "G6_provider_outage",
+        "client": "resilient",
+        "turns": 2385,
+        "good_turns": 2134,
+        "availability": 0.8948,
+        "latency_p50_s": 3.155,
+        "latency_p95_s": 5.727,
+        "latency_p99_s": 10.186,
+        "calls": 4519,
+        "attempts": 4725,
+        "amplification": 1.046,
+        "retry_ratio": 0.006,
+        "attempts_by_provider": {
+          "alpha": 2383,
+          "alpha-eu": 80,
+          "beta": 1835,
+          "gamma-mini": 427
+        },
+        "errors_by_code": {
+          "api_error": 11,
+          "service_unavailable": 47,
+          "client_timeout": 79,
+          "rate_limit_exceeded": 69
+        },
+        "give_up_reasons": {
+          "incompatible_model_output": 251
+        },
+        "cost": 4895.8,
+        "cost_per_good_turn": 2.294,
+        "retry_after_violations": 0,
+        "client_error_retries": 0,
+        "incompatible_routes": 251,
+        "unneeded_failovers": 0,
+        "recovery_s": 0.0,
+        "primary_share_after_restore": 1.0,
+        "checks": {
+          "availability_min": false,
+          "incompatible_routes_max": false,
+          "primary_share_after_restore_min": true
+        },
+        "pass": false,
+        "breaker_transitions": {
+          "alpha": [
+            {
+              "t": 121.0986076683127,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 131.16820329131016,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 131.21820329131018,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 141.68902343598776,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 141.73902343598778,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 151.8344229889838,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 151.8844229889838,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 161.90648072725554,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 161.95648072725555,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 171.96666970945708,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 172.0166697094571,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 182.27277962367268,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 182.3227796236727,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 192.6856231367508,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 192.7356231367508,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 202.74719962436347,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 202.7971996243635,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 212.83421354793205,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 212.88421354793206,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 223.18244583097345,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 223.23244583097346,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 233.24154927100167,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 233.29154927100168,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 243.30510777157218,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 243.3551077715722,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 253.38313142504418,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 253.4331314250442,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 263.43948203993534,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 263.48948203993535,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 274.1377240151887,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 274.18772401518873,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 285.0253577269249,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 285.0753577269249,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 295.4233791746551,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 295.4733791746551,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 305.546281558298,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 305.596281558298,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 315.73461446580086,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 315.78461446580087,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 325.85399267954307,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 325.9039926795431,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 335.9449529035283,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 335.9949529035283,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 346.45361960040026,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 346.50361960040027,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 356.6493303181875,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 356.6993303181875,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 366.7127143084503,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 366.7627143084503,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 376.9974672996248,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 377.0474672996248,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 387.0977356586134,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 387.1477356586134,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 397.1594069332599,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 397.2094069332599,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 407.2340371584099,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 407.2840371584099,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 417.36429029094506,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 417.4142902909451,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 427.41555407625424,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 428.98216403057154,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "alpha-eu": [
+            {
+              "t": 127.41262878195334,
+              "frm": "closed",
+              "to": "open",
+              "reason": "failure_rate"
+            },
+            {
+              "t": 137.54902550983638,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 143.54902550983638,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 153.6007067705697,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 159.6007067705697,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 169.6247625543949,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 175.6247625543949,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 185.6753780577648,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 191.6753780577648,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 201.72991671901733,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 207.72991671901733,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 217.74231770324818,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 223.74231770324818,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 233.86505300250818,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 239.86505300250818,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 249.98525481104832,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 255.98525481104832,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 265.9934436678939,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 271.9934436678939,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 282.03269155229407,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 288.03269155229407,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 298.1511980252534,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 304.1511980252534,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 314.684203352184,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 320.684203352184,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 330.7940667293412,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 336.7940667293412,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 347.018880418391,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 353.018880418391,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 363.19037951593,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 369.19037951593,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 379.2455075298991,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 385.2455075298991,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 395.48946655123234,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 401.48946655123234,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 412.15796881059333,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 418.15796881059333,
+              "frm": "half_open",
+              "to": "open",
+              "reason": "probe_failed"
+            },
+            {
+              "t": 428.7856560586536,
+              "frm": "open",
+              "to": "half_open",
+              "reason": "open_timeout_elapsed"
+            },
+            {
+              "t": 430.7577884532942,
+              "frm": "half_open",
+              "to": "closed",
+              "reason": "probes_succeeded"
+            }
+          ],
+          "beta": [],
+          "gamma-mini": []
+        }
+      }
+    }
+  }
+}
