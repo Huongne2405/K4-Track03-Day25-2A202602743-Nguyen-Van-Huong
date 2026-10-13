@@ -28,13 +28,13 @@ fallback_order: [alpha, alpha-eu, beta, gamma-mini]
 # YOUR client settings (read by ResilientClient). Tune them, explain them.
 # ----------------------------------------------------------------------------
 client:
-  attempt_timeout_s: 8.0
+  attempt_timeout_s: 6.0           # leave time for failover inside the 30 s turn deadline
   max_attempts_per_provider: 2      # 1 retry on the same provider, then fail over
   min_time_left_s: 1.0              # don't start an attempt that cannot finish
   backoff_base_s: 0.25
   backoff_cap_s: 4.0
-  retry_budget_ratio: 0.1           # retries <= ~10% of first attempts
-  retry_budget_min_per_s: 0.5
+  retry_budget_ratio: 0.05          # 5% refill per first attempt, plus burst/time refill
+  retry_budget_min_per_s: 0.1
   retry_budget_max_tokens: 20
   quota_cooldown_s: 300
   breaker:
