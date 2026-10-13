@@ -16,7 +16,7 @@
     "data/sli_30d_labels.json": "622f078ab163b368fc92fe85513f56dbc602aba43f73fbd258cac60491068bf4",
     "docs/RUBRIC.md": "9e46a6690b7a09b424d98b6d6781bfb155a91cab73c693cc52d2d81d27b1a9b3",
     "pyproject.toml": "a29431fa00b4b3671b09f93e2dddbce8e6539dbc7db2e382889d08f9edab188d",
-    "reports/REPORT.md": "d0e47d18dd6a3714d0f1edf7928e37da447927dddeda770ccf7768bca6c94c81",
+    "reports/REPORT.md": "e5397b7abbb3435b221af2ceb8c59ebd81fe46f3c75edd8304798aefb957f829",
     "reports/cache/cache_tuning.json": "933fa1baa8af45699aa887e02a6c05ad3c0440aa2328b87c66cbad25ac01ead9",
     "reports/cache/cached.json": "c7abcd5d604778fcede3cb6b075e98632ec6562878260932e18a6e2e0a28141e",
     "reports/cache/cached_C1_faq_outage_timeseries.csv": "909f2ee2e9041d2aa550d4400ef09e7c7f5b76d8345b2b23b3bfcda3052566f1",
@@ -108,5 +108,6 @@
     "protected_files_unchanged": true,
     "all_report_links_exist": true
   },
-  "record_scope": "Pre-publication verification; remote publication is verified separately after push."
+  "record_scope": "Verified complete submission snapshot, before reference-only metadata commit and remote publication.",
+  "submission_snapshot_commit": "8387fd759871a95678f1f4c9e7242e34ab497b90"
 }

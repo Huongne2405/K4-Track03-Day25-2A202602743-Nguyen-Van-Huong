@@ -1,13 +1,13 @@
 # Lab 25B — Report
 
 **Họ tên / nhóm:** Nguyễn Văn Hưởng — **MSV:** 2A202602743  
-**Commit:** `5a86ca83e25b9a8b29ab2c0320a8e439f4e34078` (snapshot mã nguồn A–G đã kiểm chứng; report/kết quả chấm ở các commit tiếp theo).
+**Commit:** `8387fd759871a95678f1f4c9e7242e34ab497b90` (snapshot đầy đủ: source, report, hình và scoreboard; commit kế tiếp chỉ cập nhật tham chiếu này và manifest).
 **HEAD nguồn:** `a3f9ce7078c14d183ed1e95d311a2df59bc86855` (starter gốc trước các commit bài làm)  
 **Điểm tự động (`make grade`):** 84 / 88 (4 điểm SLO hidden chờ giảng viên; report chấm tay /12)
 
 > Mọi nhận định phải có số. Dán số từ `reports/gameday/*.json`, `reports/workflows.json`, `reports/slo.json`.
 
-> Hoàn thiện Part A–G, đối chiếu `docs/RUBRIC.md`. Các số liệu là kết quả mô phỏng local; băng ẩn và điểm report do giảng viên chấm. Hash snapshot đầy đủ sẽ được cập nhật sau khi commit toàn bộ report và kết quả chấm.
+> Hoàn thiện Part A–G, đối chiếu `docs/RUBRIC.md`. Các số liệu là kết quả mô phỏng local; băng ẩn và điểm report do giảng viên chấm. Dòng Commit tham chiếu snapshot đầy đủ đã kiểm chứng; commit metadata chỉ ghi lại tham chiếu này.
 
 ## 1. Kết quả Game Day (naive vs của bạn)
 
